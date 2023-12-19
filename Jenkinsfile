@@ -7,7 +7,7 @@
         stage('Lint Checks'){
           steps { 
               script {
-                sample.info("cart")
+                sample.info('cart')
             }
             sh "whoami"
             sh "echo ***** Starting Style Checks *****"
