@@ -4,18 +4,12 @@
       //  label "ws"
     //}
     stages{
-        stage('Lint Checks'){
-          steps { 
-              script {
-                sample.info('cart')
-            }
-            sh "whoami"
-            sh "echo ***** Starting Style Checks *****"
-            sh "ls -ltr server.js"
-            sh "/home/centos/node_modules/jslint/bin/jslint.js server.js || true" // this cmd does style check for server.js
-             sh "echo ***** Completed Style Checks *****"
-        }
-          
+       stage('Lint Checks'){
+          steps {
+            script {
+                nodejs.lintChecks()
+            }           
+        }          
     }
         stage('Static Code Analysis'){
           steps {
