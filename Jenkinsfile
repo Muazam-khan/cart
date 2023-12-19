@@ -1,10 +1,13 @@
  pipeline {
-    agent {
-        label "ws"
-    }
+      agent any // {
+      //  label "ws"
+    //}
     stages{
         stage('Lint Checks'){
-          steps {
+          steps { 
+              script {
+                sample.info("cart")
+            }
             sh "whoami"
             sh "echo ***** Starting Style Checks *****"
             sh "ls -ltr server.js"
